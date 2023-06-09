@@ -1,0 +1,91 @@
+$green: #00a884;
+
+@mixin li {
+  color: #f2f2f2;
+  display: flex !important;
+  justify-items: center;
+  align-items: center;
+  width: inherit;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 25px;
+  position: relative;
+  transition: background-color 300ms linear;
+  cursor: pointer;
+  &:hover {
+    background-color: #2d2d2d;
+    &::after {
+      opacity: 1;
+    }
+  }
+  &::after {
+    content: "";
+    background-color: $green;
+    width: 3px;
+    height: 50%;
+    margin: auto 0;
+    position: absolute;
+    left: 0px;
+    border-radius: 50px;
+    opacity: 0;
+    transition: opacity 300ms linear;
+  }
+}
+
+@mixin ul {
+  list-style: none;
+  width: 43px;
+  margin-inline: auto;
+  display: block;
+}
+
+.sidebar {
+  width: 47px;
+  height: 100vh;
+  position: fixed;
+  padding-block: 50px;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  ul.navigation {
+    @include ul;
+    li {
+      $is_after: true;
+      @include li;
+      &:first-child {
+        background-color: #2d2d2d;
+        &::after {
+          opacity: 1;
+        }
+      }
+      svg {
+        margin: 0 auto;
+      }
+    }
+  }
+  ul.controll {
+    @include ul;
+    li {
+      $is_after: false;
+      @include li;
+      &.image {
+        width: 43px;
+        height: 43px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: inherit;
+          height: inherit;
+          object-fit: cover;
+          border-radius: 50%;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}

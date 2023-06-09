@@ -1,0 +1,41 @@
+@import "./sidebar.scss";
+@import "./chats.scss";
+@import "./main.scss";
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #202020;
+}
+
+img {
+  pointer-events: none;
+}
+
+.page {
+  display: flex;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4f4e4eaf;
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #393535cd;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
